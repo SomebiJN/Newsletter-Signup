@@ -1,7 +1,6 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const https = require("https")
-const { options, post } = require("request")
 const dotenv = require('dotenv')
 
 const app = express()
@@ -49,7 +48,7 @@ app.post("/",function(req,res){
         auth: "somebi:" + SECRET_KEY
     }
 
-    //make POST request to mailchimp
+    //our server makes POST request to mailchimp
     const request = https.request(url, options, function(response){
 
         if(response.statusCode === 200){ //OK
