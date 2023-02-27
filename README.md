@@ -1,7 +1,7 @@
 # Newsletter-Signup
 Sign up to my newsletter and receive monthly updates from me. This web application is fully functioning and hosted on the Cyclic platform
 
-#Tools used:
+**Tools used:**
 1. ExpressJS
 2. mailchimp (for storing the emails and names)
 3. HTML, CSS, JS, Bootstrap
