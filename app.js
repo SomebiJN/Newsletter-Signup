@@ -1,10 +1,13 @@
 const express = require("express")
 const bodyParser = require("body-parser")
-const request = require("request")
 const https = require("https")
 const { options, post } = require("request")
+const dotenv = require('dotenv')
 
 const app = express()
+dotenv.config()
+
+const SECRET_KEY = process.env.SECRET_KEY;
 
 //serve up our static(local) css file and images located in public folder
 app.use(express.static("public"));
@@ -43,7 +46,7 @@ app.post("/",function(req,res){
     const url = "https://us13.api.mailchimp.com/3.0/lists/" + list_id
     const options = {
         method: "post",
-        auth: "somebi:21a102bcec03c8df685cb5d0cfbe288d-us13"
+        auth: "somebi:" + SECRET_KEY
     }
 
     //make POST request to mailchimp
@@ -66,8 +69,6 @@ app.post("/",function(req,res){
     request.write(jsonData)
     request.end()
     
-    //apiKey: "21a102bcec03c8df685cb5d0cfbe288d-us13"
-    
 })
 
 //post request made by failure route when Try again button clicked
@@ -81,5 +82,3 @@ app.listen(process.env.PORT || 3000,function(){
     console.log("server is running on port 3000")
 })
 
-//Audience ID
-//ee6e696ef4
