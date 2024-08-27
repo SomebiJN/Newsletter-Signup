@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A newsletter signup page that stores emails",
   "main": "app.js",
-  "scripts": {
+   "scripts": {
+    "serve": "nodemon --watch . app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Somebi Nwogu",
